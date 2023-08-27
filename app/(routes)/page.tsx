@@ -16,11 +16,14 @@ const useStore = create<CountState>()((set) => ({
 function Counter() {
   const { count, increase } = useStore();
   return (
-    <div>
-      <div className="flex w-full bg-slate-100 justify-center">
-        <span className="font-semibold text-lg py-4">{count}</span>
+    <div className="grid grid-cols-2 gap-x-3">
+      <div>
+        <div className="flex w-full bg-slate-100 justify-center">
+          <span className="font-semibold text-lg py-4">{count}</span>
+        </div>
+        <Button onClick={increase} label="One Up" disabled={false} />
       </div>
-      <Button onClick={increase} label="One Up" disabled={false} />
+      <div className="bg-red-500"></div>
     </div>
   );
 }
@@ -29,7 +32,7 @@ export default function Home() {
   return (
     <>
       <div>
-        Home Page
+        <h3>Home Page</h3>
         <Counter />
       </div>
     </>
