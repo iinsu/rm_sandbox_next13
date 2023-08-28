@@ -2,9 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 import { Inter } from "next/font/google";
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar/navbar";
-import ClientOnly from "@/components/clientOnly";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,14 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ClientOnly>
-          <Navbar />
-        </ClientOnly>
-
-        <div className="h-full">{children}</div>
-        <Footer />
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
