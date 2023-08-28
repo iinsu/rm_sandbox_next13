@@ -4,23 +4,10 @@
 import { Button } from "@/components/ui/button";
 import SecondButton from "@/components/ui/button2";
 import { ChevronDownCircle, ChevronUpCircle } from "lucide-react";
-import { create } from "zustand";
-
-interface CountState {
-  count: number;
-  increase: () => void;
-  decrease: () => void;
-}
-
-const useStore = create<CountState>()((set) => ({
-  count: 0,
-  increase: () => set((state) => ({ count: state.count + 1 })),
-  decrease: () =>
-    set((state) => ({ count: state.count <= 0 ? 0 : state.count - 1 })),
-}));
+import { useCount } from "@/hooks/use-count";
 
 function Counter() {
-  const { count, increase, decrease } = useStore();
+  const { count, increase, decrease } = useCount();
   return (
     <div className="grid grid-cols-2 gap-x-3">
       <div>
