@@ -18,7 +18,7 @@ const SecondButton = forwardRef<HTMLButtonElement, ButtonProps>(
         rounded-md
         bg-black
         border-transparent
-        px-5
+        px-3
         py-2
         disabled:cursor-not-allowed
         disabled:opacity-50
