@@ -25,7 +25,7 @@ export default function RootLayout({
           <Navbar />
         </ClientOnly>
 
-        <div className="pb-20 pt-28">{children}</div>
+        <div className="pb-20 pt-28 h-full">{children}</div>
         <Footer />
       </body>
     </html>
