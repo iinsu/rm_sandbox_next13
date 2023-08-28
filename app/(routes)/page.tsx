@@ -1,6 +1,8 @@
 "use client";
 
-import Button from "@/components/button";
+//import Button from "@/components/button";
+import { Button } from "@/components/ui/button";
+import SecondButton from "@/components/ui/button2";
 import { create } from "zustand";
 
 interface CountState {
@@ -21,7 +23,9 @@ function Counter() {
         <div className="flex w-full bg-slate-100 justify-center">
           <span className="font-semibold text-lg py-4">{count}</span>
         </div>
-        <Button onClick={increase} label="One Up" disabled={false} />
+        {/* <Button onClick={increase} label="One Up" disabled={false} /> */}
+        <Button onClick={increase}>ABC</Button>
+        <SecondButton>SDF</SecondButton>
       </div>
       <div className="bg-red-500"></div>
     </div>
