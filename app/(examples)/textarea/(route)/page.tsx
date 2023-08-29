@@ -74,7 +74,7 @@ const TextAreaForm = () => {
   );
 };
 
-const DashBoard = () => {
+const TextareaPage = () => {
   const handleClick = () => {
     toast({
       title: "Hello",
@@ -94,4 +94,4 @@ const DashBoard = () => {
   );
 };
 
-export default DashBoard;
+export default TextareaPage;
