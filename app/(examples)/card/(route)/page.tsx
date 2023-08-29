@@ -66,6 +66,7 @@ const CardPage = ({ className, ...props }: CardProps) => {
                 <p className="text-sm font-medium leading-none">
                   {notification.description}
                 </p>
+                <Separator />
               </div>
             </div>
           ))}
