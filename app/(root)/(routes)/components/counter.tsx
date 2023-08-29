@@ -19,7 +19,7 @@ function Counter() {
         </div>
         {/* <Button onClick={increase} label="One Up" disabled={false} /> */}
         <div className="grid grid-cols-2 gap-2 mt-2 ">
-          <Button onClick={increase} variant="test">
+          <Button onClick={increase}>
             <ChevronUpCircle size={20} className="mr-1" /> One up
           </Button>
           <SecondButton onClick={decrease} className="flex items-center">
