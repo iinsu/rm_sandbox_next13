@@ -17,9 +17,10 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
+import { Gift } from "lucide-react";
 
 const FormSchema = z.object({
-  bio: z
+  text: z
     .string()
     .min(10, { message: "Bio must be at least 10 characters." })
     .max(160, { message: "Bio must not be longer than 30 characters." }),
@@ -31,7 +32,6 @@ const TextAreaForm = () => {
   });
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    console.log(data);
     toast({
       title: "You submitted the following values:",
       description: (
@@ -50,10 +50,10 @@ const TextAreaForm = () => {
       >
         <FormField
           control={form.control}
-          name="bio"
+          name="text"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Bio</FormLabel>
+              <FormLabel>text</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Tell us a little bit about yourself"
@@ -87,7 +87,7 @@ const DashBoard = () => {
       <div className="flex flex-col items-center justify-center h-full bg-slate-100">
         <TextAreaForm />
         <Button onClick={handleClick} className="mt-5">
-          Click me
+          <Gift size={20} className="mr-2" /> Click me
         </Button>
       </div>
     </>
