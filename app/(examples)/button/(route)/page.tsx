@@ -4,7 +4,7 @@ import { Video } from "lucide-react";
 const ButtonPage = () => {
   return (
     <>
-      <div className="m-3">
+      <div className="flex justify-center m-3">
         <Button className="flex flex-col h-full" variant="exampleIndigo">
           <div className="mb-2">
             <Video size={20} />
