@@ -15,7 +15,7 @@ const UserMenu = () => {
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
-        <div className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer">
+        <div className="hidden px-4 py-3 text-sm font-semibold transition rounded-full cursor-pointer md:block hover:bg-neutral-100">
           Sandbox
         </div>
         <div
@@ -24,13 +24,13 @@ const UserMenu = () => {
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
-            <Avatar />
+            <Avatar src="" />
           </div>
         </div>
       </div>
 
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm">
+        <div className="absolute right-0 overflow-hidden text-sm bg-white shadow-md rounded-xl md:w-3/4 top-12">
           <>
             <MenuItem onClick={() => {}} label="Login" />
             <MenuItem onClick={() => {}} label="Sign up" />

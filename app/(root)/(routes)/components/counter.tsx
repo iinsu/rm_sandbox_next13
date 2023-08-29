@@ -12,7 +12,7 @@ import SecondButton from "@/components/ui/button2";
 function Counter() {
   const { count, increase, decrease } = useCount();
   return (
-    <div className="grid justify-center h-full">
+    <div className="grid justify-center ">
       <div>
         <div className="flex justify-center rounded-md bg-slate-100">
           <span className="py-4 text-3xl font-semibold">{count}</span>
