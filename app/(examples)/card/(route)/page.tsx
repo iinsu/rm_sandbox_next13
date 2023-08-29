@@ -13,8 +13,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-type CardProps = React.ComponentProps<typeof Card>;
-
 // 더미 데이터
 const notifications = [
   {
@@ -31,8 +29,10 @@ const notifications = [
   },
 ];
 
+//type CardProps = React.ComponentProps<typeof Card>;
+
 // 메인 함수
-const CardPage = ({ className, ...props }: CardProps) => {
+const CardPage = ({ className, ...props }: any) => {
   return (
     <div className="flex justify-center w-full py-10">
       <Card className={cn("w-[380px]", className)} {...props}>
@@ -73,7 +73,7 @@ const CardPage = ({ className, ...props }: CardProps) => {
         </CardContent>
         <CardFooter>
           <Button className="w-full">
-            <Check className="w-4 h-4 mr-2" />
+            <Check size={20} />
             Mark All as read
           </Button>
         </CardFooter>
