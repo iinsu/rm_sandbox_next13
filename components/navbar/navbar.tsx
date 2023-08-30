@@ -2,7 +2,17 @@ import Container from "../container";
 import Logo from "./logo";
 import UserMenu from "./userMenu";
 
-const Navbar = () => {
+type User = {
+  email: string;
+  name: string;
+  image?: string;
+};
+
+interface UserProps {
+  currentUser: User | null;
+}
+
+const Navbar: React.FC<UserProps> = ({ currentUser }) => {
   return (
     <>
       <div className="w-full bg-white shadow-sm">
@@ -10,7 +20,7 @@ const Navbar = () => {
           <Container>
             <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
               <Logo />
-              <UserMenu />
+              <UserMenu currentUser={currentUser} />
             </div>
           </Container>
         </div>

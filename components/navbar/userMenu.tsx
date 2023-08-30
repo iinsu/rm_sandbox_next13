@@ -6,8 +6,19 @@ import Avatar from "./avatar";
 import MenuItem from "./menuItem";
 import { Modal } from "../modal";
 import { Button } from "../ui/button";
+import { signIn, signOut } from "next-auth/react";
 
-const UserMenu = () => {
+type User = {
+  email: string;
+  name: string;
+  image?: string;
+};
+
+interface UserProps {
+  currentUser: User | null;
+}
+
+const UserMenu: React.FC<UserProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
 
@@ -28,17 +39,21 @@ const UserMenu = () => {
           >
             <AiOutlineMenu />
             <div className="hidden md:block">
-              <Avatar src="" />
+              <Avatar src={currentUser?.image} />
             </div>
           </div>
         </div>
 
         {isOpen && (
           <div className="absolute right-0 overflow-hidden text-sm bg-white shadow-md rounded-xl md:w-3/4 top-12">
-            <>
-              <MenuItem onClick={() => setLoginOpen(true)} label="Login" />
-              <MenuItem onClick={() => {}} label="Sign up" />
-            </>
+            {currentUser ? (
+              <MenuItem onClick={signOut} label="Logout" />
+            ) : (
+              <>
+                <MenuItem onClick={() => setLoginOpen(true)} label="Login" />
+                <MenuItem onClick={() => {}} label="Sign up" />
+              </>
+            )}
           </div>
         )}
       </div>
@@ -48,7 +63,9 @@ const UserMenu = () => {
         isOpen={loginOpen}
         onClose={() => setLoginOpen(false)}
       >
-        <Button className="w-full">Login</Button>
+        <Button className="w-full" onClick={() => signIn("google")}>
+          Login
+        </Button>
       </Modal>
     </>
   );

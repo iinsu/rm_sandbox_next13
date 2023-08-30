@@ -1,9 +1,20 @@
+import getCurrentUser from "@/app/actions/getCurrentUser";
 import { Button } from "@/components/ui/button";
 import { Video, AlertTriangle, Info } from "lucide-react";
 
 const buttonStyle = "flex flex-col h-full";
 
-const ButtonPage = () => {
+const ButtonPage = async () => {
+  const currentUser = await getCurrentUser();
+
+  if (!currentUser) {
+    return (
+      <div className="flex justify-center gap-2 m-3">
+        <Button>Please Login</Button>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="flex justify-center gap-2 m-3">
