@@ -34,6 +34,10 @@ export default function Home() {
               <ClipboardEdit size={20} className="mr-2" />
               Textarea
             </Button>
+            <Button onClick={() => router.push("/dialog")}>
+              <MousePointerSquare size={20} className="mr-2" />
+              Dialog
+            </Button>
           </div>
         </div>
       </div>

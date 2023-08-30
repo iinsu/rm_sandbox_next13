@@ -22,8 +22,8 @@ import { Gift } from "lucide-react";
 const FormSchema = z.object({
   text: z
     .string()
-    .min(10, { message: "Bio must be at least 10 characters." })
-    .max(160, { message: "Bio must not be longer than 30 characters." }),
+    .min(10, { message: "Text must be at least 10 characters." })
+    .max(160, { message: "Text must not be longer than 30 characters." }),
 });
 
 const TextAreaForm = () => {
@@ -46,7 +46,14 @@ const TextAreaForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center p-3 space-y-6 rounded-md bg-stone-200"
+        className={`
+        flex flex-col
+        items-center
+        justify-center
+        p-3 space-y-6
+        rounded-md
+        bg-stone-200
+        `}
       >
         <FormField
           control={form.control}
