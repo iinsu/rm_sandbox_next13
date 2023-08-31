@@ -60,6 +60,7 @@ const FormPage = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-[500px] space-y-6 mt-7"
         >
+          {/* Select 폼 */}
           <div>
             <FormField
               control={form.control}
@@ -96,6 +97,7 @@ const FormPage = () => {
             />
           </div>
 
+          {/* 이메일 알림 동의 */}
           <div>
             <h3 className="mb-4 text-lg font-medium">Email Notifications</h3>
             <div className="space-y-4">
@@ -121,6 +123,7 @@ const FormPage = () => {
                   </FormItem>
                 )}
               />
+              {/* 보안 이메일 */}
               <FormField
                 control={form.control}
                 name="security_emails"
