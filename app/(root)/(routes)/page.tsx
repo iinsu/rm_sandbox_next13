@@ -1,15 +1,15 @@
-"use client";
-
-import { ClipboardEdit, CreditCard, MousePointerSquare } from "lucide-react";
+import {
+  ClipboardEdit,
+  CreditCard,
+  MousePointerSquare,
+  ArrowDownSquare,
+  AppWindow,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Counter from "./components/counter";
-import { useRouter } from "next/navigation";
-import getCurrentUser from "@/app/actions/getCurrentUser";
 import Link from "next/link";
 
 function Home() {
-  const router = useRouter();
-
   return (
     <>
       <div className="flex flex-col items-center justify-center ">
@@ -20,29 +20,35 @@ function Home() {
         <div className=" w-[500px] flex justify-center bg-stone-100 mt-7 rounded-md p-5">
           <div className="grid justify-center grid-cols-3 gap-2 ">
             <Link href="/card">
-              <Button
-                className="bg-indigo-500"
-                onClick={() => router.push("/card")}
-              >
+              <Button className="w-full bg-indigo-500">
                 <CreditCard size={20} className="mr-2" />
                 Card
               </Button>
             </Link>
-            <Button
-              className="bg-purple-600"
-              onClick={() => router.push("/button")}
-            >
-              <MousePointerSquare size={20} className="mr-2" />
-              Button
-            </Button>
-            <Button onClick={() => router.push("/textarea")}>
-              <ClipboardEdit size={20} className="mr-2" />
-              Textarea
-            </Button>
-            <Button onClick={() => router.push("/dialog")}>
-              <MousePointerSquare size={20} className="mr-2" />
-              Dialog
-            </Button>
+            <Link href="/button">
+              <Button className="w-full bg-purple-600">
+                <ArrowDownSquare size={20} className="mr-2" />
+                Button
+              </Button>
+            </Link>
+            <Link href="/textarea">
+              <Button className="w-full">
+                <ClipboardEdit size={20} className="mr-2" />
+                Textarea
+              </Button>
+            </Link>
+            <Link href="/dialog">
+              <Button className="w-full">
+                <MousePointerSquare size={20} className="mr-2" />
+                Dialog
+              </Button>
+            </Link>
+            <Link href="/tab">
+              <Button className="w-full">
+                <AppWindow size={20} className="mr-2" />
+                Tab
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
