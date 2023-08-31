@@ -4,6 +4,7 @@ import {
   MousePointerSquare,
   ArrowDownSquare,
   AppWindow,
+  ClipboardList,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Counter from "./components/counter";
@@ -47,6 +48,12 @@ function Home() {
               <Button className="w-full">
                 <AppWindow size={20} className="mr-2" />
                 Tab
+              </Button>
+            </Link>
+            <Link href="/form">
+              <Button className="w-full">
+                <ClipboardList size={20} className="mr-2" />
+                Form
               </Button>
             </Link>
           </div>
