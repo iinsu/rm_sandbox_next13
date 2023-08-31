@@ -6,6 +6,7 @@ import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
+import { Switch } from "@/components/ui/switch";
 import {
   Form,
   FormControl,
@@ -13,12 +14,24 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
-import { Switch } from "@/components/ui/switch";
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import Link from "next/link";
 
 const FormSchema = z.object({
   marketing_emails: z.boolean().default(false).optional(),
   security_emails: z.boolean(),
+  email: z
+    .string({ required_error: "Please select an email to display" })
+    .email(),
 });
 
 const FormPage = () => {
@@ -47,6 +60,42 @@ const FormPage = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-[500px] space-y-6 mt-7"
         >
+          <div>
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a verified email to display" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="m@example.com">
+                        m@example.com
+                      </SelectItem>
+                      <SelectItem value="m@google.com">m@google.com</SelectItem>
+                      <SelectItem value="m@support.com">
+                        m@support.com
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormDescription>
+                    You can manage email addresses in your{" "}
+                    <Link href="">email settings</Link>
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
           <div>
             <h3 className="mb-4 text-lg font-medium">Email Notifications</h3>
             <div className="space-y-4">
